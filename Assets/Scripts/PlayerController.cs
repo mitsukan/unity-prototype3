@@ -11,13 +11,18 @@ public class PlayerController : MonoBehaviour
     {
         // assign the rigidbody component to the variable
         playerRigidBody = GetComponent<Rigidbody>();
-        // The variable now has all of the methods for a rigibody, including add force
-        playerRigidBody.AddForce(Vector3.up * 500);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // The variable now has all of the methods for a rigibody, including add force
+            // Adding a mode to the force, Impulse means that the force is applied immediately
+            // instead of overtime. This means that the force applied can be less
+            playerRigidBody.AddForce(Vector3.up * 10 , ForceMode.Impulse);
+        }
     }
 }
